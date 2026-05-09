@@ -676,6 +676,17 @@ export default function App() {
     }
   };
 
+  const startNewDeck = () => {
+    setTitle("Untitled set");
+    setDescription("");
+    setRawCards("");
+    setPreviewCards([]);
+    setSavedDeck(null);
+    setIsShareReady(false);
+    setIsSharePanelOpen(false);
+    setSaveMessage("New card module started.");
+  };
+
   const createDeck = () => {
     setSaveMessage(
       "Create will save the set and return to the teacher dashboard. This step will be connected later.",
@@ -768,6 +779,12 @@ export default function App() {
           </div>
 
           <div className="flex gap-3">
+            <button
+              onClick={startNewDeck}
+              className="rounded-3xl bg-indigo-50 px-6 py-3 font-bold text-indigo-600 hover:bg-indigo-100"
+            >
+              New
+            </button>
             <button
               onClick={saveDeck}
               disabled={isSaving}
