@@ -98,10 +98,6 @@ function OptionButton({ active, children, onClick }) {
 function Flashcard({ card }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  useEffect(() => {
-    setIsFlipped(false);
-  }, [card.id]);
-
   return (
     <div className="mx-auto w-full max-w-[920px] [perspective:1400px]">
       <button
@@ -198,14 +194,6 @@ function StudentDeck({
   const [cardStatus, setCardStatus] = useState({});
   const [lastRepeatCard, setLastRepeatCard] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
-
-  useEffect(() => {
-    setQueue(cards);
-    setCurrentIndex(0);
-    setCardStatus({});
-    setLastRepeatCard(null);
-    setIsFinished(false);
-  }, [cards]);
 
   const totalCards = cards.length;
   const reviewedCount = Object.keys(cardStatus).length;
